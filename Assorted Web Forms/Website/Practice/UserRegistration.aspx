@@ -27,10 +27,10 @@
             <asp:TextBox ID="ConfirmEmail" runat="server"></asp:TextBox>
 
             <asp:Label ID="Label6" runat="server" Text="Password"></asp:Label>
-            <asp:TextBox ID="Password" runat="server"></asp:TextBox>
+            <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
 
             <asp:Label ID="Label7" runat="server" Text="Confirm Password"></asp:Label>
-            <asp:TextBox ID="ConfirmPassword" runat="server"></asp:TextBox>
+            <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
         </fieldset>
         <asp:CheckBox ID="AgreeToTerms" runat="server"
             Text="I agree to the terms of this site." />

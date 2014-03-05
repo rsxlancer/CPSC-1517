@@ -47,6 +47,8 @@
     </p>
     <p>
         <asp:LinkButton ID="Submit" runat="server">Submit</asp:LinkButton>
+        <br />
+        <asp:Label ID="MessageLabel" runat="server"></asp:Label>
     </p>
 
 </asp:Content>
