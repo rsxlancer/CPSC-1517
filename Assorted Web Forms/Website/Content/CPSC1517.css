@@ -1,0 +1,230 @@
+﻿/*  .numberCircle
+    sourced from http://stackoverflow.com/questions/4861224/how-to-css-a-number-to-be-surrounded-by-a-circle
+    alternate version at http://labs.kaliko.com/2012/04/circled-number-with-pure-css.html
+    */
+.numberCircle {
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+    behavior: url(PIE.htc);
+
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+
+    background: #fff;
+    border: 2px solid #c8c8c8;
+    color: #c8c8c8;
+    text-align: center;
+
+    font-size: 1em;
+    /*font: 32px Arial, sans-serif*/
+}
+
+.site-title .numberCircle {
+    font-size: 0.85em;
+    padding: 4px 12px;
+    font-weight: bolder;
+}
+
+table.grid {
+    width: 100%;
+}
+
+.grid td {
+    padding: 5px;
+    vertical-align: top;
+}
+
+.altRow {
+    background-color: ghostwhite;
+}
+
+.selectedRow{
+    /*cursor: pointer;*/
+    background: #ffff99;
+}
+
+.noWrap {
+    white-space: nowrap;
+}
+
+.rightAlign {
+    text-align: right;
+}
+
+
+/* ---------------------------------------------------------------------
+    Form Element (overrides) */
+fieldset label 
+{ 
+    display: inline-block;
+    min-width: 120px; 
+    min-height: 19px;
+    margin: 5px 0;
+    padding: 5px 0;
+}
+
+fieldset span.inline-block,
+fieldset span.inline-block-vertical
+{
+    display: inline-block;
+    vertical-align: top;
+    min-height: 19px;
+    padding-top: 7px;
+}
+
+fieldset span.inline-block input, /*:not(:first-child),*/
+fieldset span.inline-block label, /*input + label:not(:last-child)*/
+fieldset span.inline-block-vertical input, /*:not(:first-child),*/
+fieldset span.inline-block-vertical label /*input + label:not(:last-child)*/
+{
+    margin: 0px 5px 0px 0px;
+    padding: 3px;
+}
+
+/*fieldset span.inline-block-vertical input:first-child,
+fieldset span.inline-block-vertical input:first-child + label,
+fieldset span.inline-block-vertical label:last-child
+{
+    margin: 0 0 5px 0px;
+    padding: 5px;
+}*/
+
+
+/* Notes:
+    Form element styling is depending on jQuery inserting <br> tags before the labels.
+    The goal is to display form elements in the following manner:
+    <fieldset>
+        <label> <input>
+        <label> <input>
+        <label> <input[radio]><label> <input[radio]><label>
+        <label> <input>
+        <label> <span><input[radio]><label>
+                      <input[radio]><label>
+                      <input[radio]><label></span>
+        <label> <input>
+    </fieldset>
+
+    Achieving this without wrapping each line in a <div> or hard-coding a <br>
+    (which would semantically break the idea of grouping input in a fieldset)
+    is very hard in pure CSS.
+
+    One trick to get labels to be preceeded by a line break would be this:
+        fieldset label { display:inline; min-width: 120px; }
+        label:before { content:"\A"; white-space:pre; }
+
+        input[type="radio"] + label:before,
+        input[type="checkbox"] + label:before
+        {
+            content: ' ';
+        }
+
+    -----------
+    Addendum Note:
+    The \A for a newline needs the updated NuGet package for WebGrease, as the 1.1 version does not minify correctly.
+    see http://webgrease.codeplex.com/workitem/33
+    */
+
+input[type="radio"],
+input[type="checkbox"]
+{
+    width: auto;
+    margin: 5px 5px 5px 0px;
+    padding: 5px;
+}
+
+input[type="radio"]+label,
+input[type="checkbox"]+label
+{
+    padding-right: 5px;
+    width: auto;
+    min-width: initial;
+}
+
+input[type="submit"], 
+input[type="button"], 
+button, 
+a.button,
+a.primaryButton  {
+    background-color: #d3dce0;
+    border: 1px solid #787878;
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 400;
+    padding: 3px;
+    margin-right: 8px;
+    width: auto;
+    white-space: nowrap;
+}
+
+a.button, a.primaryButton {
+    text-decoration: none;
+}
+
+input[type="submit"].primaryButton, 
+input[type="button"].primaryButton, 
+a.primaryButton {
+    font-weight: bold;
+}
+
+/*----- end of form/link-button elements ----------------------------*/
+
+.editDelete {
+}
+
+#addEditInfo label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+    margin-right: 7px;
+}
+
+#addEditInfo h3 {
+    border-bottom: 1px solid #787878;
+    padding-bottom:1px;
+    display:table-cell;
+}
+
+.featured hgroup.title h2:before
+{
+    content: "\2014"; /* from http://css-tricks.com/snippets/html/glyphs/ */
+    padding-right:5px;
+}
+
+dl { display: block; padding-left: 20px; }
+dt { float: left; width: 120px; font-weight: bold; }
+dd { display: inline-block; width: 80%; }
+dd input { display: block; }
+.clear-prefix:before {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+/*
+    External Link styling 
+    - Set "http://" to whatever your domain is, and the external link icon will be appended to external links.
+      e.g.: "http://localhost" for development or "http://www.contoso.com" for production
+*/
+a[href^="http://"] {
+    background: url(/Images/Icon_External_Link.png) center right no-repeat;
+    padding-right: 13px;
+}
+
+a[href^="http://localhost"]  {
+    background: none;
+    padding-right: 0;
+}
+
+.bold-link a
+{
+    font-weight: bold;
+}
+
+.inline-block
+{
+    display: inline-block;
+}
