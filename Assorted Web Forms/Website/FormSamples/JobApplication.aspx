@@ -41,7 +41,10 @@
         </asp:CheckBoxList>
     </fieldset>
     <p>
-        <asp:LinkButton ID="Submit" runat="server">Submit</asp:LinkButton>
+        <asp:LinkButton ID="Submit" runat="server" OnClick="Submit_Click">Submit</asp:LinkButton>
+    </p>
+    <p>
+        <asp:Label ID="FormResults" runat="server" />
     </p>
 
 </asp:Content>

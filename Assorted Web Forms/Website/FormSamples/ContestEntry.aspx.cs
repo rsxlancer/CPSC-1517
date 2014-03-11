@@ -32,8 +32,8 @@ public partial class FormSamples_ContestEntry : System.Web.UI.Page
     }
     private void DisplayEntry(Entry ContestEntrant)
     {
-        MessageLabel.Text = "Thank You " + ContestEntrant.FirsName + " "
-                            + ContestEntrant.LastName + ". "
-                            + "Your contest entry is being processed,";
+        MessageLabel.Text = "Thank You " 
+            + ContestEntrant.FirsName + " " + ContestEntrant.LastName + ". " 
+            + "Your contest entry is being processed,";
     }
 }

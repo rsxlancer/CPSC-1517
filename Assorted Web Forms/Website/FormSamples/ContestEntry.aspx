@@ -46,7 +46,7 @@
             Text="I agree to the terms of the contest." />
     </p>
     <p>
-        <asp:LinkButton ID="Submit" runat="server">Submit</asp:LinkButton>
+        <asp:LinkButton ID="Submit" runat="server" OnClick="Submit_Click">Submit</asp:LinkButton>
         <br />
         <asp:Label ID="MessageLabel" runat="server"></asp:Label>
     </p>

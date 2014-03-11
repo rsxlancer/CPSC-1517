@@ -39,7 +39,10 @@
         </asp:DropDownList>
     </fieldset>
     <p>
-        <asp:LinkButton ID="Submit" runat="server" Text="Submit" />
+        <asp:LinkButton ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />
+    </p>
+    <p>
+        <asp:Label ID="FormResults" runat="server" />
     </p>
 </asp:Content>
 

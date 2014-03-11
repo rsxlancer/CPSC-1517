@@ -20,4 +20,8 @@ partial class FormSamples_StudentEnrollment : System.Web.UI.Page
 		     }
         }
     }
+    protected void Submit_Click(object sender, EventArgs e)
+    {
+
+    }
 }
