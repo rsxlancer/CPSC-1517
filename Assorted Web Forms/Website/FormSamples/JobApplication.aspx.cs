@@ -15,7 +15,7 @@ public partial class FormSamples_JobApplication : System.Web.UI.Page
     protected void Submit_Click(object sender, EventArgs e)
     {
         // 1) create CBO instance (the JobApplication object)
-        JobApplication applicant;
+        JobApplication applicant =new JobApplication();
 
         // 2) get the info from the controls
         applicant.Name = FullName.Text;
