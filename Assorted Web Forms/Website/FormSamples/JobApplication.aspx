@@ -11,18 +11,24 @@
         <legend></legend>
         <asp:Label ID="lblFullName" runat="server" Text="Name" AssociatedControlID="FullName"></asp:Label>
         <asp:TextBox ID="FullName" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="First name is required" ControlToValidate="FullName"></asp:RequiredFieldValidator>
 
         <asp:Label ID="lblEmailAddress" runat="server" Text="Email" AssociatedControlID="EmailAddress"></asp:Label>
         <asp:TextBox ID="EmailAddress" runat="server"></asp:TextBox>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Email must be in correct format" ControlToValidate="EmailAddress" ValidationExpression="\w+([-+.']\w)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
 
         <asp:Label ID="lblPhoneNumber" runat="server" Text="Phone" AssociatedControlID="PhoneNumber"></asp:Label>
         <asp:TextBox ID="PhoneNumber" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Phone Number is Required" ControlToValidate="PhoneNumber" Display="Dynamic"></asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Phone number must be in the following format: (###)###-####" ControlToValidate="PhoneNumber" Display="Dynamic" ValidationExpression="\(\d{3}\)\s?\d{3}-\d{4}"></asp:RegularExpressionValidator>
 
         <asp:Label ID="lblFullOrPartTime" runat="server" Text="Full/Part Time" AssociatedControlID="FullOrPartTime"></asp:Label>
         <asp:RadioButtonList ID="FullOrPartTime" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" CssClass="inline-block">
             <asp:ListItem>Full time</asp:ListItem>
             <asp:ListItem>Part time</asp:ListItem>
         </asp:RadioButtonList>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="You must select full or part time" ControlToValidate="FullOrPartTime"></asp:RequiredFieldValidator>
+
 		<%--
 		<!-- Alternatively, you can use individual RadioButtons instead of a RadioButtonList, but it's good to put in a span -->
         <asp:Label ID="lblFullTime" runat="server" Text="Full/Part Time" AssociatedControlID="FullTime"></asp:Label>

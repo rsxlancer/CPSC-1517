@@ -67,6 +67,10 @@
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/FormSamples/About.aspx">FormSamples...</a></li>
+                        <li><a runat="server" href="~/FormSamples/ContestEntry.aspx">Contest Entry</a></li>
+                        <li><a runat="server" href="~/FormSamples/CreateBankAccount.aspx">Create Bank Account</a></li>
+                        <li><a runat="server" href="~/FormSamples/JobApplication.aspx">Job Application</a></li>
+                        <li><a runat="server" href="~/FormSamples/StudentEnrollment.aspx">Student Enrollment</a></li>
                     </ul>
                 </nav>
             </div>

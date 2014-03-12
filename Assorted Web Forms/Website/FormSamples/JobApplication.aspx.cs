@@ -14,33 +14,36 @@ public partial class FormSamples_JobApplication : System.Web.UI.Page
     }
     protected void Submit_Click(object sender, EventArgs e)
     {
-        // 1) create CBO instance (the JobApplication object)
-        JobApplication applicant =new JobApplication();
-
-        // 2) get the info from the controls
-        applicant.Name = FullName.Text;
-        applicant.Email = EmailAddress.Text;
-        applicant.PhoneNumber = PhoneNumber.Text;
-
-        // get full or part time input
-        if (FullOrPartTime.SelectedValue.Equals("Full time"))
+        if (IsValid)
         {
-            applicant.IsFullTime = true;
-        }
+            // 1) create CBO instance (the JobApplication object)
+            JobApplication applicant = new JobApplication();
 
-        //Get the jobs- I used the generc List<T> in my CBO
-        //b/c it's easier to add items than a regular aray
+            // 2) get the info from the controls
+            applicant.Name = FullName.Text;
+            applicant.Email = EmailAddress.Text;
+            applicant.PhoneNumber = PhoneNumber.Text;
 
-        foreach (ListItem item in Jobs.Items)
-        {
-            if (item.Selected)
+            // get full or part time input
+            if (FullOrPartTime.SelectedValue.Equals("Full time"))
             {
-                applicant.Jobs.Add(item.Value);
+                applicant.IsFullTime = true;
             }
-        }
 
-        //put the output on the web page, just to show that we were able to create an object
-        ShowTheFormResult(applicant);
+            //Get the jobs- I used the generc List<T> in my CBO
+            //b/c it's easier to add items than a regular aray
+
+            foreach (ListItem item in Jobs.Items)
+            {
+                if (item.Selected)
+                {
+                    applicant.Jobs.Add(item.Value);
+                }
+            }
+
+            //put the output on the web page, just to show that we were able to create an object
+            ShowTheFormResult(applicant);
+        }
     }
     public void ShowTheFormResult(JobApplication Applicant)
     {
