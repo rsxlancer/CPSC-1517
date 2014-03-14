@@ -51,6 +51,7 @@
         <asp:LinkButton ID="ClearForm" runat="server" Text="Clear Form" OnClick="ClearForm_Click" CausesValidation="false" />
     </p>
     <p>
+        <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
         <asp:Label ID="FormResults" runat="server" />
     </p>
 

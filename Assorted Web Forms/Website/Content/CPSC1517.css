@@ -229,7 +229,7 @@ a[href^="http://localhost"]  {
     display: inline-block;
 }
 
-span[data-val-controltovalidate], span[data-val-summary] 
+span[data-val-controltovalidate], span[data-val-summary] , div[data-val-summary], div[valsummary]
 {
     color:red;
     font-size:1.15em;

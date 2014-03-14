@@ -6,6 +6,7 @@ using Microsoft.AspNet.Membership.OpenAuth;
 
 namespace AppDev1.Demos.Data
 {
+    [Serializable] // <--This is an attribute that lets instances of BankAccount be converted to/from text (for http)
     public class BankAccount
     {
         public string AccountHolder { get; set; }
