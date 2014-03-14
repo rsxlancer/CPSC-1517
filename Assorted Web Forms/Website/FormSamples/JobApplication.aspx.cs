@@ -54,4 +54,14 @@ public partial class FormSamples_JobApplication : System.Web.UI.Page
         FormResults.Text += "Email: " + Applicant.Email + linebreak;
         FormResults.Text += "Number of jobs applied for: " + Applicant.Jobs.Count + linebreak;
     }
+    protected void ClearForm_Click(object sender, EventArgs e)
+    {
+        FullName.Text = "";
+        EmailAddress.Text = "";
+        PhoneNumber.Text = "";
+        FullOrPartTime.SelectedValue = null;
+        Jobs.SelectedValue = null;
+        FormResults.Text = "";
+
+    }
 }

@@ -47,6 +47,7 @@
     </p>
     <p>
         <asp:LinkButton ID="Submit" runat="server" OnClick="Submit_Click">Submit</asp:LinkButton>
+        <asp:LinkButton ID="ClearForm" runat="server" Text="Clear Form" OnClick="ClearForm_Click" CausesValidation="false" />
         <br />
         <asp:Label ID="MessageLabel" runat="server"></asp:Label>
     </p>

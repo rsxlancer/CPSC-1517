@@ -40,6 +40,7 @@
     </fieldset>
     <p>
         <asp:LinkButton ID="Submit" runat="server" Text="Submit" OnClick="Submit_Click" />
+        <asp:LinkButton ID="ClearForm" runat="server" Text="Clear Form" OnClick="ClearForm_Click" CausesValidation="false" />
     </p>
     <p>
         <asp:Label ID="FormResults" runat="server" />

@@ -28,7 +28,19 @@ public partial class FormSamples_CreateBankAccount : System.Web.UI.Page
         // 3) Do something with the object
         // Put the output on the webpage, just to show that we were able to create an object
         ShowTheFormResult(Account);
+    } 
+    
+    protected void ClearForm_Click(object sender, EventArgs e)
+    {
+        AccountHolder.Text = "";
+        AccountNumber.Text = "";
+        OpeningBalance.Text = "";
+        OverdraftLimit.Text = "";
+        //drop down list = set the index position to zero
+        AccountType.SelectedIndex = 0;//-1 would be fine also
+        FormResults.Text = "";
     }
+    
     public void ShowTheFormResult(BankAccount AccountObject)
     {
         string linebreak = "<br />";
@@ -36,4 +48,5 @@ public partial class FormSamples_CreateBankAccount : System.Web.UI.Page
             AccountObject.AccountHolder + linebreak + "Balance: " + AccountObject.Openingbalance.ToString() +
             linebreak + "Type: " + AccountObject.AccountType;
     }
+ 
 }

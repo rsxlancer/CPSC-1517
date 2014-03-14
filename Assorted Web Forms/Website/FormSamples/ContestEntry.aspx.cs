@@ -36,4 +36,16 @@ public partial class FormSamples_ContestEntry : System.Web.UI.Page
             + ContestEntrant.FirsName + " " + ContestEntrant.LastName + ". " 
             + "Your contest entry is being processed,";
     }
+    protected void ClearForm_Click(object sender, EventArgs e)
+    {
+        FirstName.Text = "";
+        LastName.Text = "";
+        StreetAddress1.Text = "";
+        StreetAddress2.Text = "";
+        City.Text = "";
+        Province.SelectedIndex = 0;
+        PostalCode.Text = "";
+        Email.Text = "";
+        AgreeToTerms.Checked = false;
+    }
 }

@@ -24,4 +24,16 @@ partial class FormSamples_StudentEnrollment : System.Web.UI.Page
     {
 
     }
+    protected void ClearForm_Click(object sender, EventArgs e)
+    {
+        FirstName.Text = "";
+        LastName.Text = "";
+        MiddleName.Text = "";
+        SocialInsuranceNumber.Text = "";
+        ProgramOfStudy.SelectedIndex = 0;
+        DateOfBirth.Text = "";
+        SchoolYear.SelectedIndex = 0;
+        FormResults.Text = "";
+
+    }
 }
