@@ -20,7 +20,7 @@
 
         <asp:Label ID="lblOpeningBalance" runat="server" AssociatedControlID="OpeningBalance" Text="Opening Balance"></asp:Label>
         <asp:TextBox ID="OpeningBalance" runat="server"></asp:TextBox>
-        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Opening balance must be greater than zero" ControlToValidate="OpeningBalance" Operator="GreaterThan" ValueToCompare="0" Type="Currency"></asp:CompareValidator>
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Opening balance must be greater than zero" ControlToValidate="OpeningBalance" Operator="GreaterThanEqual" ValueToCompare="0" Type="Currency"></asp:CompareValidator>
 
         <asp:Label ID="lblOverdraftLimit" runat="server" AssociatedControlID="OverdraftLimit" Text="Overdraft Limit"></asp:Label>
         <asp:TextBox ID="OverdraftLimit" runat="server"></asp:TextBox>

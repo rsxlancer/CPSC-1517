@@ -41,9 +41,85 @@ public partial class FormSamples_CreateBankAccount : System.Web.UI.Page
             BankAccountsGridView.DataBind();
         }
     }
+
+    private bool OtherValidation()
+{
+bool valid = true;//start optimistic, then look for anything that is not valid
+string message = "";
+
+//check for duplicate account numbers
+
+foreach(BankAccount item in StoredData)
+{
+	int number;
+	if(int.TryParse(AccountNumber.Text, out number))
+	{
+	if(item.AccountNumber.Equals(number))
+	{
+		valid = false;
+		message += "Duplicate bank account numbers are not allowed.";
+	}
+	}
+}
+
+//Special validation for credit cards
+if(AccountType.SelectedValue.Equals("Credit"))
+{
+	double temp;
+	if(double.TryParse(OpeningBalance.Text, out temp))//if the opening balance is a double...
+	{
+		if(temp != 0)
+		{
+			valid = false;
+			message += "Opening balances must be Zero for Credit accounts.";
+		}
+	}
+
+	if(double.TryParse(OverdraftLimit.Text, out temp))//if the overdraft limit is a double...
+	{
+		if(temp != 0)
+		{
+			valid = false;
+			message += "Overdraft limits are not allowed for Credit accounts.";
+		}
+	}
+}
+else
+{
+	double temp;
+	if(double.TryParse(OpeningBalance.Text, out temp))
+	{
+		if(temp <= 0)
+		{
+			valid = false;
+			message+= "An opening balance greater than zero is required for nin-Credit accounts.";
+		}
+	}
+}
+
+if( !valid)
+{
+	FormResults.Text = message;
+}
+
+return valid;
+}
+
+    private void CleanUpInput()
+    {
+        //.Trim will rempove all leading and trailing white space 
+        AccountHolder.Text = AccountHolder.Text.Trim();
+        AccountNumber.Text = AccountNumber.Text.Trim();
+        OpeningBalance.Text = OpeningBalance.Text.Trim();
+        OverdraftLimit.Text = OverdraftLimit.Text.Trim();
+    }
+
     protected void Submit_Click(object sender, EventArgs e)
     {
+        CleanUpInput();
         // 1) Create an object to hold information from the user.
+        if(IsValid && OtherValidation())
+        {
         BankAccount Account;
         Account = new BankAccount();
 
@@ -62,6 +138,7 @@ public partial class FormSamples_CreateBankAccount : System.Web.UI.Page
         StoredData.Add(Account);
         BankAccountsGridView.DataSource = StoredData;// give the gridview the data
         BankAccountsGridView.DataBind(); //tell teh gridview to extract data fro display
+        }
     } 
     
     protected void ClearForm_Click(object sender, EventArgs e)
